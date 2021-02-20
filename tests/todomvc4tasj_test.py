@@ -7,7 +7,7 @@ def test_todo_lifecycle():
     browser.open('https://todomvc4tasj.herokuapp.com/')
     browser.should(have.js_returned(True, 'return Object.keys(require.s.contexts._.defined).length === 39;'))
 
-    browser.element('#new-todo').set_value('a').press_enter()
+    browser.element('#new-todo').type('a').press_enter()
     browser.element('#new-todo').type('b').press_enter()
     browser.element('#new-todo').type('c').press_enter()
     browser.all('#todo-list li').should(have.exact_texts('a', 'b', 'c'))
